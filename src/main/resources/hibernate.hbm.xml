@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.mymaven.hibernatestudentinheritancetwodemo.Student" table="stud">
+      <id name="rollno">
+          <generator class="increment"> </generator>
+      </id>
+      <property name="name"/>
+      <property name="course"/>
+      <property name="dept"/>
+      <property name="percent" />
+      
+      <union-subclass name="com.mymaven.hibernatestudentinheritancetwodemo.UG_Student" table="ug_student">
+          <property name="duration"/>
+      </union-subclass>
+      
+      <union-subclass name="com.mymaven.hibernatestudentinheritancetwodemo.PG_Student" table="pg_student">
+          <property name="noOfYears" />
+      </union-subclass>
+  </class>
+</hibernate-mapping>
